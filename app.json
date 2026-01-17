@@ -3,7 +3,6 @@
         "name": "react-native-purple-school",
         "slug": "react-native-purple-school",
         "version": "1.0.0",
-        "orientation": "portrait",
         "icon": "./assets/icon.png",
         "userInterfaceStyle": "light",
         "newArchEnabled": true,

@@ -1,16 +1,16 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
 import { Colors, Gaps } from '../../../../shared/tokens';
 import { CustomLink } from '../../../../shared/CustomLink/CustomLink';
-import { CloseDrawer } from '../../../../features/layout/ui/CloseDrawer/CloseDrawer';
 import { useAtom, useSetAtom } from 'jotai';
-import { logoutAtom } from '../../../auth/model/auth.state';
-import { loadProfileAtom } from '../../../user/model/user.state';
-import UserMenu from '../../../user/ui/UserMenu/UserMenu';
+import { logoutAtom } from '../../../../entities/auth/model/auth.state';
+import { loadProfileAtom } from '../../../../entities/user/model/user.state';
 import ProfileIcon from '../../../../assets/icons/profile';
 import HatIcon from '../../../../assets/icons/hat';
-import MenuItem from '../MenuItem/MenuItem';
+import MenuItem from '../../../../entities/layout/ui/MenuItem/MenuItem';
+import { CloseDrawer } from '../../../../features/layout/ui/CloseDrawer/CloseDrawer';
+import UserMenu from '../../../user/ui/UserMenu/UserMenu';
 const MENU = [
 	{ text: 'Профиль', icon: <ProfileIcon />, path: 'profile' },
 	{ text: 'Курсы', icon: <HatIcon />, path: 'index' },
@@ -22,9 +22,7 @@ export default function CustomDrawer(props: DrawerContentComponentProps) {
 	useEffect(() => {
 		loadProfile();
 	}, []);
-	useEffect(() => {
-		console.log(profile);
-	}, [profile]);
+
 	return (
 		<DrawerContentScrollView contentContainerStyle={styles.scrollView} {...props}>
 			<View style={styles.content}>

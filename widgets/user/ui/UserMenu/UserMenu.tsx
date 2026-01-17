@@ -1,28 +1,20 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { User } from '../../model/user.model';
 import { Fonts, Gaps, Colors } from '../../../../shared/tokens';
+import Avatar from '../../../../entities/user/ui/Avatar/Avatar';
+import { User } from '../../../../entities/user/model/user.model';
 
 export default function UserMenu({ user }: { user: User | null }) {
 	if (!user) return null;
 	return (
 		<View style={styles.container}>
-			{user.photo ? (
-				<Image style={styles.profileImg} source={{ uri: user.photo }} resizeMode="contain" />
-			) : (
-				<Image style={styles.profileImg} source={require('../../../../assets/profile.png')} resizeMode="contain" />
-			)}
+			<Avatar image={user.photo ?? null} />
 			<Text style={styles.name}>{user.name}</Text>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
-	profileImg: {
-		height: 70,
-		width: 70,
-		borderRadius: 35,
-	},
 	container: {
 		alignItems: 'center',
 		gap: Gaps.g8,

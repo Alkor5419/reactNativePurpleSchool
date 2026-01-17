@@ -5,7 +5,7 @@ import { useAtomValue } from 'jotai';
 import { Drawer } from 'expo-router/drawer';
 import { Colors, Fonts } from '../../shared/tokens';
 import { MenuButton } from '../../features/layout/ui/MenuButton/MenuButton';
-import CustomDrawer from '../../entities/layout/ui/Drawer/CustomDrawer';
+import CustomDrawer from '../../widgets/layout/ui/CustomDrawer/CustomDrawer';
 
 export default function AppLayout() {
 	const { accessToken } = useAtomValue(authAtom);

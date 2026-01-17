@@ -2,8 +2,12 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import React from 'react';
 import CloseIcon from '../../../../assets/icons/close';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
-
-export const CloseDrawer = (navigation: DrawerNavigationProp) => {
+interface ParamList {
+	[key: string]: object | undefined;
+	profile: undefined;
+	index: undefined;
+}
+export const CloseDrawer = (navigation: DrawerNavigationProp<ParamList>) => {
 	return (
 		<Pressable onPress={() => navigation.closeDrawer()}>
 			<View style={styles.button}>
