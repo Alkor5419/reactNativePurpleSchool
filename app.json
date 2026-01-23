@@ -27,6 +27,14 @@
             "favicon": "./assets/favicon.png"
         },
         "plugins": ["expo-router",[
+        "expo-notifications",
+        {
+          "icon": "./assets/NotificationIcon.png",
+          "color": "#16171D",
+          "defaultChannel": "default",
+          "enableBackgroundRemoteNotifications": false
+        }
+      ],[
         "expo-font",
         {
           "android": {

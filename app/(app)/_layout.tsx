@@ -9,6 +9,7 @@ import CustomDrawer from '../../widgets/layout/ui/CustomDrawer/CustomDrawer';
 
 export default function AppLayout() {
 	const { accessToken } = useAtomValue(authAtom);
+
 	if (!accessToken) {
 		return <Redirect href="/login" />;
 	}

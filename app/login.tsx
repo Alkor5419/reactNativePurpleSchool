@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { Link, router } from 'expo-router';
 import { authAtom, loginAtom } from '../entities/auth/model/auth.state';
 import { useAtom, useSetAtom } from 'jotai';
-import { useScreenOrientation } from '../shared/hooks';
 
 export default function Login() {
 	const [form, setForm] = useState<{ email: string; password: string }>({
@@ -17,8 +16,6 @@ export default function Login() {
 	const [{ error, accessToken, isLoading }] = useAtom(authAtom);
 	const [errorForm, setErrorForm] = useState<string | undefined>();
 	const login = useSetAtom(loginAtom);
-	const orientation = useScreenOrientation();
-	console.log(orientation);
 	useEffect(() => {
 		if (accessToken) router.replace('/(app)');
 	}, [accessToken]);
